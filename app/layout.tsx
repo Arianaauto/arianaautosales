@@ -1,12 +1,12 @@
 export const metadata = {
-  title: "Ariana Auto Sales",
-  description: "Used cars dealership",
+  title: "Ariana Auto Sales LLC",
+  description: "New & used cars in Denver, CO",
 };
 
-const linkStyle: React.CSSProperties = {
-  color: "#0f172a",
+const navLink: React.CSSProperties = {
+  color: "#0f1b3d",
   textDecoration: "none",
-  fontWeight: 700,
+  fontWeight: 800,
   fontSize: 14,
   padding: "10px 12px",
   borderRadius: 10,
@@ -15,9 +15,9 @@ const linkStyle: React.CSSProperties = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "Arial, sans-serif", background: "#ffffff", color: "#0f172a" }}>
+      <body style={{ margin: 0, fontFamily: "Arial, sans-serif", background: "#ffffff", color: "#0f1b3d" }}>
         {/* TOP BAR */}
-        <div style={{ background: "#0b1220", color: "#e2e8f0" }}>
+        <div style={{ background: "#0b1433", color: "#eaf0ff" }}>
           <div
             style={{
               maxWidth: 1180,
@@ -35,10 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <b>Ariana Auto Sales LLC</b> · 1061 E 70TH AVE, Denver, CO 80229
             </div>
             <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-              <a href="tel:+17208233036" style={{ color: "#ffffff", textDecoration: "none", fontWeight: 800 }}>
+              <a href="tel:+17208233036" style={{ color: "#ffffff", textDecoration: "none", fontWeight: 900 }}>
                 (720) 823-3036
               </a>
-              <span style={{ opacity: 0.9 }}>By appointment only</span>
+              <span style={{ opacity: 0.9 }}>New & Used Cars</span>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{
               maxWidth: 1180,
               margin: "0 auto",
-              padding: "18px 16px",
+              padding: "16px 16px",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -58,40 +58,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
-                  background: "linear-gradient(135deg, #dc2626, #1e3a8a)",
-                }}
+              <img
+                src="/logo.png"
+                alt="Ariana Auto Sales LLC"
+                style={{ width: 64, height: 44, objectFit: "contain" }}
               />
               <div>
-                <div style={{ fontWeight: 900, letterSpacing: 0.4, fontSize: 18 }}>ARIANA AUTO SALES</div>
-                <div style={{ fontSize: 12, color: "#64748b" }}>Quality vehicles · Great deals</div>
+                <div style={{ fontWeight: 950, letterSpacing: 0.4, fontSize: 18 }}>ARIANA AUTO SALES LLC</div>
+                <div style={{ fontSize: 12, color: "#5b6b8b" }}>Buy · Pay & Trade Here</div>
               </div>
             </div>
 
             <nav style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-              <a href="/" style={linkStyle}>
-                Home
-              </a>
-              <a href="/all-inventory" style={linkStyle}>
-                Inventory
-              </a>
-              <a href="/contact-us" style={linkStyle}>
-                Contact
-              </a>
-              <a href="/crypto-deal" style={linkStyle}>
-                Crypto Deals
-              </a>
+              <a href="/" style={navLink}>Home</a>
+              <a href="/all-inventory" style={navLink}>Inventory</a>
+              <a href="/contact-us" style={navLink}>Contact</a>
+              <a href="/crypto-deal" style={navLink}>Crypto Deals</a>
+
               <a
                 href="/all-inventory"
                 style={{
-                  ...linkStyle,
-                  background: "#0f172a",
+                  ...navLink,
+                  background: "#d71920",
                   color: "#ffffff",
-                  fontWeight: 900,
+                  fontWeight: 950,
                 }}
               >
                 View Cars
@@ -100,26 +90,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        <main style={{ maxWidth: 1180, margin: "0 auto", padding: "26px 16px" }}>{children}</main>
+        <main style={{ maxWidth: 1180, margin: "0 auto", padding: "22px 16px" }}>{children}</main>
 
-        <footer style={{ borderTop: "1px solid #e5e7eb", background: "#fafafa", marginTop: 46 }}>
+        <footer style={{ borderTop: "1px solid #e5e7eb", background: "#f7f9ff", marginTop: 46 }}>
           <div style={{ maxWidth: 1180, margin: "0 auto", padding: "26px 16px", display: "grid", gap: 10 }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
               <div>
-                <div style={{ fontWeight: 900 }}>Ariana Auto Sales LLC</div>
-                <div style={{ fontSize: 13, color: "#64748b", marginTop: 6 }}>
+                <div style={{ fontWeight: 950 }}>Ariana Auto Sales LLC</div>
+                <div style={{ fontSize: 13, color: "#5b6b8b", marginTop: 6 }}>
                   1061 E 70TH AVE, Denver, CO 80229
                 </div>
               </div>
               <div style={{ textAlign: "right" }}>
-                <a href="tel:+17208233036" style={{ color: "#0f172a", textDecoration: "none", fontWeight: 900 }}>
+                <a href="tel:+17208233036" style={{ color: "#0f1b3d", textDecoration: "none", fontWeight: 950 }}>
                   (720) 823-3036
                 </a>
-                <div style={{ fontSize: 13, color: "#64748b", marginTop: 6 }}>By appointment only</div>
+                <div style={{ fontSize: 13, color: "#5b6b8b", marginTop: 6 }}>New & Used Cars</div>
               </div>
             </div>
 
-            <div style={{ fontSize: 12, color: "#64748b" }}>
+            <div style={{ fontSize: 12, color: "#5b6b8b" }}>
               © {new Date().getFullYear()} Ariana Auto Sales LLC. All rights reserved.
             </div>
           </div>
