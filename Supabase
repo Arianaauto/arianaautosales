@@ -1,1 +1,58 @@
 
+-- VEHICLES
+create table if not exists vehicles (
+  id uuid primary key default gen_random_uuid(),
+  vin text unique not null,
+  year int,
+  make text,
+  model text,
+  trim text,
+  price int,
+  miles int,
+  stock_number text,
+  exterior_color text,
+  interior_color text,
+  engine text,
+  transmission text,
+  drivetrain text,
+  fuel text,
+  description text,
+  photos text[] default '{}'::text[],
+  status text default 'active', -- active | sold | inactive
+  source text default 'manual', -- manual | csv
+  manual_overrides jsonb default '{}'::jsonb,
+  last_import_at timestamptz,
+  last_manual_edit_at timestamptz,
+  created_at timestamptz default now()
+);
+
+create index if not exists vehicles_status_idx on vehicles(status);
+create index if not exists vehicles_make_model_idx on vehicles(make, model);
+create index if not exists vehicles_year_idx on vehicles(year);
+
+-- LEADS (opțional, dar util)
+create table if not exists leads (
+  id uuid primary key default gen_random_uuid(),
+  vehicle_vin text,
+  name text,
+  email text,
+  phone text,
+  message text,
+  created_at timestamptz default now()
+);
+
+-- Security simplu (public read la vehicles, write doar prin server)
+alter table vehicles enable row level security;
+alter table leads enable row level security;
+
+create policy "Public can read active vehicles"
+on vehicles for select
+using (status = 'active');
+
+create policy "No direct public writes"
+on vehicles for all
+using (false);
+
+create policy "No direct public writes leads"
+on leads for all
+using (false);
